@@ -4,7 +4,7 @@ metadata:
   name: hola-mundo-cronjob
   namespace: daniel-lopez-fisa-dev
 spec:
-  schedule: "*/5 * * * *"   # Cada 5 minutos
+  schedule: "*/1 * * * *"   # Cada 1 minutos
   jobTemplate:
     spec:
       template:
@@ -15,6 +15,7 @@ spec:
               command: ["/bin/sh", "-c"]
               args:
                 - |
+                  sleep 10
                   echo "hola mundo"
           restartPolicy: Never
       backoffLimit: 2
