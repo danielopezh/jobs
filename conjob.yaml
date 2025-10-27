@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hola-mundo-cronjob
+  namespace: daniel-lopez-fisa-dev
+spec:
+  schedule: "*/5 * * * *"   # Cada 5 minutos
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: hola-mundo
+              image: busybox:latest
+              command: ["/bin/sh", "-c"]
+              args:
+                - |
+                  echo "hola mundo"
+          restartPolicy: Never
+      backoffLimit: 2
