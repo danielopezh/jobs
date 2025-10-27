@@ -28,4 +28,4 @@ jobs:
         run: |
           oc project daniel-lopez-fisa-dev
           oc delete job hola-mundo-job --ignore-not-found
-          oc apply -f job.yaml
+          oc apply -f cronjob.yaml
